@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Додати новий рецепт</h1>
+    <h1>Обміняти квартиру</h1>
     <form action="/exchange" method="post">
         <div class="form-group">
             <label for="ownerName">Введіть ваше ім'я:</label>
