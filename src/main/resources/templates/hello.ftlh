@@ -13,8 +13,8 @@
             <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="Ім'я">
         </div>
         <div class="form-group">
-            <label for="ownerSurname">Введіть ваше призвіще:</label>
-            <input type="text" class="form-control" id="ownerSurname" name="ownerSurname" placeholder="Призвіще">
+            <label for="ownerSurname">Введіть ваше прізвище:</label>
+            <input type="text" class="form-control" id="ownerSurname" name="ownerSurname" placeholder="Прізвище">
         </div>
         <div class="form-group">
             <label for="ownerNumberOfRooms">Введіть кількість кімнат вашої квартири:</label>

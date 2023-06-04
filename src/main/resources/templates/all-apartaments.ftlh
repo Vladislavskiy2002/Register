@@ -16,7 +16,7 @@
         <thead>
         <tr>
             <th scope="col">Ім'я замовника</th>
-            <th scope="col">Призвіще замовника</th>
+            <th scope="col">Прізвище замовника</th>
             <th scope="col">Площа квартири</th>
             <th scope="col">Номер поверху</th>
             <th scope="col">Кількість кімнат</th>
