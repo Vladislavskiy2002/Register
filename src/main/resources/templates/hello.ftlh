@@ -5,46 +5,58 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<div>
+<div class="container">
+    <h1>Додати новий рецепт</h1>
     <form action="/exchange" method="post">
-        Введіть ваше ім'я: <input placeholder="name" name="ownerName">
-        <br>
-        <br>
-        Введіть вашу фамілію: <input placeholder="surname" name="ownerSurname">
-        <br>
-        <br>
-        Введіть кількість кімнат вашої квартири: <input placeholder="number of Rooms" name="ownerNumberOfRooms">
-        <br>
-        <br>
-        Введіть площу квартири: <input placeholder="area" name="ownerArea">
-        <br>
-        <br>
-        Введіть поверх: <input placeholder="floor" name="ownerFloor">
-        <br>
-        <br>
-        Введіть район: <input placeholder="district" name="ownerDistrict">
-        <br>
-        <br>
-        Введіть кількість кімнат бажаної квартири: <input placeholder="number of Rooms" name="orderNumberOfRooms">
-        <br>
-        <br>
-        Введіть площу бажаної квартири: <input placeholder="area" name="orderArea">
-        <br>
-        <br>
-        Введіть поверх бажаної квартири: <input placeholder="floor" name="orderFloor">
-        <br>
-        <br>
-        Введіть район бажаної квартири: <input placeholder="district" name="orderDistrict">
-        <br>
-        <br>
-        <button type="submit">ENTER</button>
+        <div class="form-group">
+            <label for="ownerName">Введіть ваше ім'я:</label>
+            <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="Ім'я">
+        </div>
+        <div class="form-group">
+            <label for="ownerSurname">Введіть вашу фамілію:</label>
+            <input type="text" class="form-control" id="ownerSurname" name="ownerSurname" placeholder="Фамілія">
+        </div>
+        <div class="form-group">
+            <label for="ownerNumberOfRooms">Введіть кількість кімнат вашої квартири:</label>
+            <input type="text" class="form-control" id="ownerNumberOfRooms" name="ownerNumberOfRooms" placeholder="Кількість кімнат">
+        </div>
+        <div class="form-group">
+            <label for="ownerArea">Введіть площу квартири:</label>
+            <input type="text" class="form-control" id="ownerArea" name="ownerArea" placeholder="Площа">
+        </div>
+        <div class="form-group">
+            <label for="ownerFloor">Введіть поверх:</label>
+            <input type="text" class="form-control" id="ownerFloor" name="ownerFloor" placeholder="Поверх">
+        </div>
+        <div class="form-group">
+            <label for="ownerDistrict">Введіть район:</label>
+            <input type="text" class="form-control" id="ownerDistrict" name="ownerDistrict" placeholder="Район">
+        </div>
+        <div class="form-group">
+            <label for="orderNumberOfRooms">Введіть кількість кімнат бажаної квартири:</label>
+            <input type="text" class="form-control" id="orderNumberOfRooms" name="orderNumberOfRooms" placeholder="Кількість кімнат">
+        </div>
+        <div class="form-group">
+            <label for="orderArea">Введіть площу бажаної квартири:</label>
+            <input type="text" class="form-control" id="orderArea" name="orderArea" placeholder="Площа">
+        </div>
+        <div class="form-group">
+            <label for="orderFloor">Введіть поверх бажаної квартири:</label>
+            <input type="text" class="form-control" id="orderFloor" name="orderFloor" placeholder="Поверх">
+        </div>
+        <div class="form-group">
+            <label for="orderDistrict">Введіть район бажаної квартири:</label>
+            <input type="text" class="form-control" id="orderDistrict" name="orderDistrict" placeholder="Район">
+        </div>
+        <button type="submit" class="btn btn-primary">Відправити</button>
     </form>
     <#if errors?has_content>
-        <ul>
+        <ul class="text-danger">
             <#list errors as error>
-                <li class="text-danger">${error.defaultMessage}</li>
+                <li>${error.defaultMessage}</li>
             </#list>
         </ul>
     </#if>
-    </div>
+</div>
 </body>
+</html>
