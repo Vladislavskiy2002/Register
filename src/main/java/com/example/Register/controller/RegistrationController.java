@@ -31,7 +31,7 @@ public class RegistrationController{
             model.addAttribute("errors", bindingResult.getAllErrors());
             return "hello";
         } else {
-            Boolean isTheExchangeSuccessful = apartmentService.addApartments(form);
+            Boolean isTheExchangeSuccessful = apartmentService.findFirstApartment(form);
             if(!isTheExchangeSuccessful) {
                 return "theExchangeSuccessful";
             } else {

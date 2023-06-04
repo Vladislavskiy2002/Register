@@ -29,36 +29,36 @@ public class ApartmentServiceImpl implements ApartmentService{
         return apartmentRepository.findAll();
     }
 
-    @Override
-    public Apartment findFirstApartmentByOwnerAreaAndOwnerFloorAndOwnerDistrictAndOwnerNumberOfRooms(Integer area, Integer floor, String district, Integer orderNumberOfRooms) {
-        return apartmentRepository.findFirstApartmentByOwnerAreaAndOwnerFloorAndOwnerDistrictAndOwnerNumberOfRooms(area,floor,district,orderNumberOfRooms);
-    }
+public Boolean findFirstApartment(Form form) {
+    int minArea = (int) (form.getOrderArea() - (form.getOrderArea() * 0.1));
+    int maxArea = (int) (form.getOrderArea() + (form.getOrderArea() * 0.1));
+    List<Apartment> apartments = apartmentRepository.findFirstApartment(minArea, maxArea, form.getOrderFloor(), form.getOrderDistrict(), form.getOrderNumberOfRooms());
 
-    public Boolean addApartments(Form form){
-        Apartment apartment = findFirstApartmentByOwnerAreaAndOwnerFloorAndOwnerDistrictAndOwnerNumberOfRooms(form.getOrderArea(),
-                form.getOrderFloor(),form.getOrderDistrict(),form.getOrderNumberOfRooms());
-        if(apartment == null) {
-            save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
-                    form.getOwnerNumberOfRooms(), form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
-                    new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
-            return true;
-        }
-        else {
-            Order order = apartment.getOrder();
-            if (order.getOrderNumberOfRooms().equals(form.getOwnerNumberOfRooms())
-                    && order.getOrderArea().equals(form.getOwnerArea()) && order.getOrderFloor().equals(form.getOwnerFloor())
-                    && order.getOrderDistrict().equals(form.getOwnerDistrict())) {
-                System.out.println("КВАРТИРИ СПІВПАДАЮТЬ");
-                System.out.println("ОБМІН ВІДБУВСЯ УСПІШНО");
-                delete(apartment);
-                return false;
-            }
-            else {
-                save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
-                        form.getOwnerNumberOfRooms(), form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
-                        new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
-                return true;
-            }
+    if (apartments == null)
+        save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
+                form.getOwnerNumberOfRooms(), form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
+                new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
+
+    for (Apartment apartment : apartments) {
+        Order order = apartment.getOrder();
+        minArea = (int) (apartment.getOrder().getOrderArea() - (apartment.getOrder().getOrderArea() * 0.1));
+        maxArea = (int) (apartment.getOrder().getOrderArea() + (apartment.getOrder().getOrderArea() * 0.1));
+
+        if (form.getOwnerArea() > maxArea || form.getOwnerArea() < minArea)
+            continue;
+
+        if (order.getOrderNumberOfRooms().equals(form.getOwnerNumberOfRooms())
+                && order.getOrderFloor().equals(form.getOwnerFloor())
+                && order.getOrderDistrict().equals(form.getOwnerDistrict())) {
+            System.out.println("КВАРТИРИ СПІВПАДАЮТЬ");
+            System.out.println("ОБМІН ВІДБУВСЯ УСПІШНО");
+            delete(apartment);
+            return false;
         }
     }
+    save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
+            form.getOwnerNumberOfRooms(), form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
+            new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
+    return true;
+}
 }
