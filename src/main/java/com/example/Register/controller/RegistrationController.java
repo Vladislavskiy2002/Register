@@ -1,5 +1,6 @@
 package com.example.Register.controller;
 
+import com.example.Register.model.Apartment;
 import com.example.Register.model.Form;
 import com.example.Register.service.ApartmentService;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,11 @@ public class RegistrationController{
                 return "apartmentSuccessfullyAdded";
             }
         }
-
+    }
+    @GetMapping("/deleteOrder")
+    private String deleteApartment(Apartment apartment){
+        apartmentService.delete(apartment);
+        return "redirect:/showAllApartments";
     }
     @GetMapping("/showAllApartments")
     private String showApartments(Model model) {

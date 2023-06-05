@@ -25,6 +25,7 @@
             <th scope="col">Бажаний номер поверху</th>
             <th scope="col">Бажана кількість кімнат</th>
             <th scope="col">Бажаний район</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +41,12 @@
                 <td>${apartment.order.orderFloor}</td>
                 <td>${apartment.order.orderNumberOfRooms}</td>
                 <td>${apartment.order.orderDistrict}</td>
+                <br>
+                <form method="get" action="/deleteOrder">
+                    <input type="hidden" name="apartment" value="${apartment.id}"/>
+                    <input class="btn btn-danger" type="submit" value="delete order"/>
+                </form>
+                <br>
             </tr>
             <tr>
             </tr>
