@@ -30,35 +30,33 @@ public class ApartmentServiceImpl implements ApartmentService{
     }
 
 public Boolean findFirstApartment(Form form) {
-    int minArea = (int) (Integer.getInteger(form.getOrderArea()) - (Integer.getInteger(form.getOrderArea()) * 0.1));
-    int maxArea = (int) (Integer.getInteger(form.getOrderArea()) + (Integer.getInteger(form.getOrderArea()) * 0.1));
-    List<Apartment> apartments = apartmentRepository.findFirstApartment(minArea,maxArea, Integer.getInteger(form.getOrderFloor()),form.getOrderDistrict(),Integer.getInteger(form.getOrderNumberOfRooms()));
+    Integer minArea = (int) (form.getOrderArea() - form.getOrderArea().intValue() * 0.1);
+    Integer maxArea =  (int) (form.getOrderArea() + form.getOrderArea().intValue() * 0.1);
+    List<Apartment> apartments = apartmentRepository.findFirstApartment(minArea,maxArea, form.getOrderFloor(),form.getOrderDistrict(),form.getOrderNumberOfRooms());
 
-    if (apartments == null)
+    if (apartments.isEmpty())
         save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
-                Integer.getInteger(form.getOwnerNumberOfRooms()), Integer.getInteger(form.getOwnerArea()), Integer.getInteger(form.getOwnerFloor()), form.getOwnerDistrict(),
-                new Order(Integer.getInteger(form.getOrderNumberOfRooms()), Integer.getInteger(form.getOrderArea()), Integer.getInteger(form.getOrderFloor()), form.getOrderDistrict())));
+                form.getOwnerNumberOfRooms(), form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
+                new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
 
     for (Apartment apartment : apartments) {
         Order order = apartment.getOrder();
         minArea = (int) (apartment.getOrder().getOrderArea() - (apartment.getOrder().getOrderArea() * 0.1));
         maxArea = (int) (apartment.getOrder().getOrderArea() + (apartment.getOrder().getOrderArea() * 0.1));
 
-        if(Integer.getInteger(form.getOwnerArea()) > maxArea || Integer.getInteger(form.getOwnerArea()) < minArea)
+        if(form.getOwnerArea() > maxArea || form.getOwnerArea() < minArea)
             continue;
 
-        if ((order.getOrderNumberOfRooms()).equals(Integer.getInteger(form.getOwnerNumberOfRooms()))
-                && order.getOrderFloor().equals(Integer.getInteger(form.getOwnerFloor()))
+        if ((order.getOrderNumberOfRooms()).equals(form.getOwnerNumberOfRooms())
+                && order.getOrderFloor().equals(form.getOwnerFloor())
                 && order.getOrderDistrict().equals(form.getOwnerDistrict())) {
-            System.out.println("КВАРТИРИ СПІВПАДАЮТЬ");
-            System.out.println("ОБМІН ВІДБУВСЯ УСПІШНО");
             delete(apartment);
             return false;
         }
     }
     save(new Apartment(form.getOwnerName(), form.getOwnerSurname(),
-            Integer.getInteger(form.getOwnerNumberOfRooms()), Integer.getInteger(form.getOwnerArea()), Integer.getInteger(form.getOwnerFloor()), form.getOwnerDistrict(),
-            new Order(Integer.getInteger(form.getOrderNumberOfRooms()), Integer.getInteger(form.getOrderArea()), Integer.getInteger(form.getOrderFloor()), form.getOrderDistrict())));
+            form.getOwnerNumberOfRooms(),form.getOwnerArea(), form.getOwnerFloor(), form.getOwnerDistrict(),
+            new Order(form.getOrderNumberOfRooms(), form.getOrderArea(), form.getOrderFloor(), form.getOrderDistrict())));
     return true;
 }
 }
