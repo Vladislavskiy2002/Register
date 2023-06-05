@@ -6,30 +6,24 @@ import javax.validation.constraints.*;
 
 @Data
 public class Form {
-    @Size(min = 3, message = "owner name must be min 3 symb")
-    @Pattern(regexp = "^[a-zA-Z]+$", message = "Name must be only alph symb")
+    @Pattern(regexp = "^[a-zA-Z]{3,}$", message = "Name must be only alph symb and be min 3 symb")
     private String ownerName;
-    @Size(min = 3, message = "owner surname must be min 3 symb")
-    @Pattern(regexp = "^[a-zA-Z]+$", message = "Surname must be only alph symb")
+    @Pattern(regexp = "^[a-zA-Z]{3,}$", message = "Surname must be only alph symb and be min 3 symb")
     private String ownerSurname;
-
-
-    @DecimalMin(value = "1", message = "owner number of rooms must be min 1")
-    private Integer ownerNumberOfRooms;
-    @Min(value = 10, message = "owner area must be min 10")
-    private Integer ownerArea;
-    @Min(value = 1, message = "owner floor must be min 1")
-    private Integer ownerFloor;
-    @Size(min = 3, message = "owner district must have min 3 symb")
+    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$", message = "owner number of rooms must be num and be minimum 1")
+    private String ownerNumberOfRooms;
+    @Pattern(regexp = "^(?:[1-9][0-9]+|10)$", message = "owner area must be num and be minimum 10")
+    private String ownerArea;
+    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$", message = "owner floor must be num and be minimum 1")
+    private String ownerFloor;
+    @Pattern(regexp = "^[a-zA-Z]{3,}$", message = "owner district must be only alph symb and be min 3 symb")
     private String ownerDistrict;
-
-
-    @Min(value = 1, message = "order number of rooms must be min 1")
-    private Integer orderNumberOfRooms;
-    @Min(value = 10, message = "owner area must be min 10")
-    private Integer orderArea;
-    @Min(value = 1, message = "owner floor must be min 1")
-    private Integer orderFloor;
-    @Size(min = 3, message = "owner district must have min 3 symb")
+    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$\n", message = "order number of rooms must be num and be minimum 1")
+    private String orderNumberOfRooms;
+    @Pattern(regexp = "^(?:[1-9][0-9]+|10)$", message = "order area must be num and be minimum 10")
+    private String orderArea;
+    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$", message = "order floor must be num and be minimum 1")
+    private String orderFloor;
+    @Pattern(regexp = "^[a-zA-Z]{3,}$", message = "order district must be only alph symb and be min 3 symb")
     private String orderDistrict;
 }
