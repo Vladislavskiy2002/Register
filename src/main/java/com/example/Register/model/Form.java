@@ -12,8 +12,7 @@ public class Form {
     @Size(min = 3, message = "owner surname must be min 3 symb")
     @Pattern(regexp = "^[a-zA-Z]+$", message = "Surname must be only alph symb")
     private String ownerSurname;
-
-    @NotNull(message = "order number of rooms must be min 1")
+    @Size(message = "owner number of rooms must be min 1")
     @DecimalMin(value = "1", message = "owner number of rooms must be min 1")
     private Integer ownerNumberOfRooms;
     @Min(value = 10, message = "owner area must be min 10")
@@ -22,8 +21,9 @@ public class Form {
     private Integer ownerFloor;
     @Size(min = 3, message = "owner district must have min 3 symb")
     private String ownerDistrict;
-    @NotNull(message = "order number of rooms must be min 1")
+    @Size(message = "order number of rooms must be min 1")
     @Min(value = 1, message = "order number of rooms must be min 1")
+
     private Integer orderNumberOfRooms;
     @Min(value = 10, message = "owner area must be min 10")
     private Integer orderArea;
