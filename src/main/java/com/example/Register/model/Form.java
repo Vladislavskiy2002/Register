@@ -18,7 +18,7 @@ public class Form {
     private String ownerFloor;
     @Pattern(regexp = "^[a-zA-Z]{3,}$", message = "owner district must be only alph symb and be min 3 symb")
     private String ownerDistrict;
-    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$\n", message = "order number of rooms must be num and be minimum 1")
+    @Pattern(regexp = "^(?:[1-9][0-9]*|1)$", message = "order number of rooms must be num and be minimum 1")
     private String orderNumberOfRooms;
     @Pattern(regexp = "^(?:[1-9][0-9]+|10)$", message = "order area must be num and be minimum 10")
     private String orderArea;
