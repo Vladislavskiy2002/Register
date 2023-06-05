@@ -20,7 +20,7 @@ public class Form {
     private Integer ownerFloor;
     @Size(min = 3, message = "owner district must have min 3 symb")
     private String ownerDistrict;
-    @Min(value = 10, message = "order number of rooms must be min 10")
+    @Min(value = 1, message = "order number of rooms must be min 1")
     private Integer orderNumberOfRooms;
     @Min(value = 10, message = "owner area must be min 10")
     private Integer orderArea;
