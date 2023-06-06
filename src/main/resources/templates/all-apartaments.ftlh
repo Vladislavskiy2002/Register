@@ -102,8 +102,52 @@
             </form>
         </div>
         <div class="col">
+            <form method="post" action="/sortByOwnerNameUp">
+                <input class="btn btn-primary" type="submit" value="Сортувати за іменем ↑"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByOwnerNameReverse">
+                <input class="btn btn-primary" type="submit" value="Сортувати за іменем ↓"/>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="col">
+            <form method="post" action="/sortByAreaUp">
+                <input class="btn btn-primary" type="submit" value="Сортувати за Площею ↑"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByAreaReverse">
+                <input class="btn btn-primary" type="submit" value="Сортувати за Площею ↓"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByRoomsUp">
+                <input class="btn btn-primary" type="submit" value="Сортувати за кімнатами ↑"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByRoomsReverse">
+                <input class="btn btn-primary" type="submit" value="Сортувати за кімнатами ↓"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByFloorUp">
+                <input class="btn btn-primary" type="submit" value="Сортувати за поверхом ↑"/>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" action="/sortByFloorReverse">
+                <input class="btn btn-primary" type="submit" value="Сортувати за поверхом ↓"/>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="col">
             <form method="get" action="/showAllApartments">
-                <input class="btn btn-primary" type="submit" value="скинути фільтри"/>
+                <input class="btn btn-primary" type="submit" value="Скинути фільтри"/>
             </form>
         </div>
     </div>

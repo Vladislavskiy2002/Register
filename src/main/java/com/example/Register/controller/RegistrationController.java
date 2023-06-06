@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class RegistrationController{
@@ -102,6 +105,71 @@ public class RegistrationController{
             return "form-district";
         }
         model.addAttribute("apartments", apartmentService.findApartmentsByDistrict(form.getOwnerDistrict()));
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByOwnerNameUp")
+    private String sortByOwnerNameUp(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream().sorted(Comparator.comparing(Apartment::getOwnerName)).collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByOwnerNameReverse")
+    private String sortByOwnerNameReverse(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream()
+                .sorted(Comparator.comparing(Apartment::getOwnerName).reversed())
+                .collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByAreaUp")
+    private String sortByArea(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream().sorted(Comparator.comparing(Apartment::getOwnerArea)).collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByAreaReverse")
+    private String sortByAreaReverse(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream()
+                .sorted(Comparator.comparing(Apartment::getOwnerArea).reversed())
+                .collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    //fff
+    @PostMapping("/sortByFloorUp")
+    private String sortByFloorUp(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream().sorted(Comparator.comparing(Apartment::getOwnerFloor)).collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByFloorReverse")
+    private String sortByFloorReverse(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream()
+                .sorted(Comparator.comparing(Apartment::getOwnerFloor).reversed())
+                .collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByRoomsUp")
+    private String sortByRoomsUp(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream().sorted(Comparator.comparing(Apartment::getOwnerNumberOfRooms)).collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
+        return "all-apartaments";
+    }
+    @PostMapping("/sortByRoomsReverse")
+    private String sortByRoomsReverse(Model model){
+        List<Apartment> apartmentList = apartmentService.getAllApartments();
+        apartmentList = apartmentList.stream()
+                .sorted(Comparator.comparing(Apartment::getOwnerNumberOfRooms).reversed())
+                .collect(Collectors.toList());
+        model.addAttribute("apartments", apartmentList);
         return "all-apartaments";
     }
 }
