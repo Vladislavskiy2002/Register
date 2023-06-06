@@ -27,13 +27,13 @@ public class RegistrationController{
     }
     @GetMapping("/exchange")
     private String addApartments() {
-        return "hello";
+        return "full-form";
     }
     @PostMapping("/exchange")
     private String addApartments(@Valid @ModelAttribute Form form, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
-            return "hello";
+            return "full-form";
         } else {
             Apartment apartment = apartmentService.findFirstApartment(form);
             model.addAttribute("apartment", apartment);
