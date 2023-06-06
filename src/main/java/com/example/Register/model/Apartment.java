@@ -23,6 +23,8 @@ public class Apartment {
     private String ownerDistrict;
     @OneToOne(cascade = CascadeType.ALL)
     private Order order;
+    @Transient
+    private Boolean isExchanged = false;
 public Apartment() {
 
 }
@@ -35,7 +37,7 @@ public Apartment() {
         this.ownerFloor = ownerFloor;
         this.ownerDistrict = ownerDistrict;
     }
-    public Apartment(String ownerName, String ownerSurname, Integer ownerNumberOfRooms, Integer ownerArea, Integer ownerFloor, String ownerDistrict, Order order) {
+    public Apartment(String ownerName, String ownerSurname, Integer ownerNumberOfRooms, Integer ownerArea, Integer ownerFloor, String ownerDistrict, Order order, Boolean isExchanged) {
         this.ownerName = ownerName;
         this.ownerSurname = ownerSurname;
         this.ownerNumberOfRooms = ownerNumberOfRooms;
@@ -43,6 +45,7 @@ public Apartment() {
         this.ownerFloor = ownerFloor;
         this.ownerDistrict = ownerDistrict;
         this.order = order;
+        this.isExchanged = isExchanged;
     }
 
     @Override

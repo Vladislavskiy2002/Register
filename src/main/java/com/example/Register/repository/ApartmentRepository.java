@@ -12,5 +12,9 @@ import java.util.List;
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
     @Query("SELECT a FROM Apartment a WHERE a.ownerArea >= :minArea AND a.ownerArea <= :maxArea AND a.ownerFloor = :floor AND a.ownerDistrict = :district AND a.ownerNumberOfRooms = :orderNumberOfRooms")
     List<Apartment> findFirstApartment(@Param("minArea") Integer minArea, @Param("maxArea") Integer maxArea, @Param("floor") Integer floor, @Param("district") String district, @Param("orderNumberOfRooms") Integer orderNumberOfRooms);
+    List<Apartment> findApartmentsByOwnerArea(Integer area);
+    List<Apartment> findApartmentsByOwnerFloor(Integer floor);
+    List<Apartment> findApartmentsByOwnerNumberOfRooms(Integer rooms);
+    List<Apartment> findApartmentsByOwnerDistrict(String district);
 }
 

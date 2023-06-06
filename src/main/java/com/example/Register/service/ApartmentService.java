@@ -9,5 +9,9 @@ public interface ApartmentService {
     void save(Apartment apartment);
     void delete(Apartment apartment);
     List<Apartment> getAllApartments();
-    Boolean findFirstApartment(Form form);
+    Apartment findFirstApartment(Form form);
+    List<Apartment> findApartmentsByArea(Integer area);
+    List<Apartment> findApartmentsByFloor(Integer floor);
+    List<Apartment> findApartmentsByRooms(Integer rooms);
+    List<Apartment> findApartmentsByDistrict(String district);
 }
