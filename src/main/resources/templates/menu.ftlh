@@ -6,26 +6,52 @@
     <style>
 
         body {
-            background-color: #f8f9fa;
+            background-color: #7AA077;
             font-family: Arial, sans-serif;
+            margin: 0;
+
+
         }
+
+        .colorful-line {
+            height: 14px;
+            background: linear-gradient(80deg, blue, yellow);
+        }
+
         .container {
             max-width: 500px;
-            margin: 100px auto;
+            margin: 160px auto;
             text-align: center;
         }
 
         h1 {
-            font-size: 28px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-size: 46px;
             margin-bottom: 40px;
-            color: #333;
+            font-weight: 400;
+            color: #F4C447;
+        }
+
+        h2 {
+            font-family: 'Inter';
+            font-style: normal;
+            font-size: 20px;
+
+            margin: 84px;
+            color: #F4C447;
+
+            line-height: 18px;
+            text-align: center;
         }
 
         .btn-custom {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
+            background-color: #5F5E5E;
+            font-family: 'Inter';
+            font-style: normal;
             margin-bottom: 20px;
+            color: #F4C447;
+            border: none;
             padding: 12px 30px;
             font-size: 18px;
             border-radius: 4px;
@@ -33,11 +59,37 @@
         }
 
         .btn-custom:hover {
-            background-color: #0069d9;
+            background-color: #A1A1A1;
         }
+
+        .img1 {
+            position: fixed;
+            top: 0px;
+
+        }
+
+        .img2 {
+            position: fixed;
+            top: 0px;
+            margin-left: 980px;
+        }
+
+
     </style>
 </head>
+
+
 <body>
+<div class="img2">
+    <img src="https://i.pinimg.com/564x/26/a4/46/26a4460db7fefb93cb1eca75b2e7806b.jpg" >
+</div>
+<div class="img1">
+    <img src="https://i.pinimg.com/564x/88/c7/61/88c7612585418fe85f7aa641ff8fcec5.jpg" >
+</div>
+
+
+
+
 <div class="container">
     <h1>Меню</h1>
     <form method="get" action="/exchange">
@@ -46,6 +98,12 @@
     <form method="get" action="/showAllApartments">
         <button class="btn btn-custom" type="submit">Показати усю картотеку</button>
     </form>
+    <h2>Курсова робота <br>
+        Островської Марії ПМ-33 <br>
+        2023</h2>
+
 </div>
+<div class="colorful-line"></div>
+
 </body>
 </html>

@@ -8,21 +8,58 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #7AA077;
             font-family: Arial, sans-serif;
         }
         .container-xxl {
             max-width: 100%;
             margin: 0;
-            padding-top: 20px;
+            padding-top: 40px;
         }
+
+        .colorful-line {
+            margin-top: 8px;
+            height: 14px;
+            width: 100%;
+            background: linear-gradient(90deg, blue, yellow);
+        }
+
         h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #333;
+            font-family: 'Inter';
+            font-style: normal;
+            font-size: 46px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            color: #F4C447;
+            text-align: center;
         }
+        .img {
+            position: absolute;
+            top: 40px;
+            color: white;
+            left: 200px;
+            margin-right: 40px;
+
+            z-index: -1;
+        }
+
+        .img1 {
+            position: absolute;
+            top: 40px;
+            color: white;
+            right: 200px;
+            margin-left: 40px;
+
+            z-index: -1;
+        }
+
+
+
+
+
         table {
-            margin-bottom: 30px;
+            margin-bottom: 80px;
+            background-color: chocolate;
         }
         th, td {
             padding: 12px;
@@ -30,15 +67,15 @@
             border-bottom: 1px solid #ddd;
         }
         th {
-            background-color: #000000;
+            background-color: #807c73;
             color: #fff;
         }
         tbody tr:nth-child(even) {
             background-color: #f2f2f2;
         }
         .btn-primary {
-            background-color: #ecaa13;
-            border-color: #ecaa13;
+            background-color:  #5F5E5E;
+            border-color: #A1A1A1;
             padding: 8px 20px;
             font-size: 16px;
             border-radius: 4px;
@@ -46,12 +83,12 @@
             transition: background-color 0.3s;
         }
         .btn-primary:hover {
-            background-color: #082567;
-            border-color: #082567;
+            background-color: #F4C447;
+            border-color: #F4C447;
         }
         .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
+            background-color: #bb3e4b;
+            border-color: #7a5b5b;
             padding: 8px 20px;
             font-size: 16px;
             border-radius: 4px;
@@ -59,11 +96,11 @@
             transition: background-color 0.3s;
         }
         .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
+            background-color: #b4868b;
+            border-color: #7a5b5b;
         }
         .menu-button {
-            background-color: #000;
+            background-color:  #5F5E5E;
             color: #fff;
             padding: 8px 20px;
             font-size: 16px;
@@ -72,14 +109,28 @@
             transition: background-color 0.3s;
         }
         .menu-button:hover {
-            background-color: #333;
+            background-color: #a6a3a3;
         }
     </style>
 </head>
 <body>
+
+
+
+<div class="img">
+    <img src="https://clipart-library.com/image_gallery/215518.png" >
+</div>
+
+<div class="img1">
+    <img src="https://clipart-library.com/image_gallery/215518.png" >
+
+</div>
+
+
 <div class="container-xxl">
     <br>
-    <h1>Інформація про квартири</h1>
+    <h1> Інформація про квартири  </h1>
+
     <div class="row">
         <div class="col">
             <form method="get" action="/findByArea">
@@ -154,6 +205,7 @@
     <table class="table">
         <thead>
         <tr>
+            <br>
             <th scope="col">#</th>
             <th scope="col">Ім'я замовника</th>
             <th scope="col">Прізвище замовника</th>
@@ -197,5 +249,7 @@
         <button type="submit" class="menu-button">Меню</button>
     </form>
 </div>
+<div class="colorful-line"></div>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #7AA077;
             font-family: Arial, sans-serif;
         }
         .container {
@@ -20,7 +20,7 @@
         h1 {
             font-size: 28px;
             margin-bottom: 40px;
-            color: #333;
+            color: #F4C447;
         }
         table {
             width: 100%;

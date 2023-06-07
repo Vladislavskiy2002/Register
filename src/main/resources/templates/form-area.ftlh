@@ -10,7 +10,7 @@
     </form>
     <#if error?has_content>
         <ul class="text-danger">
-                <li>${error.defaultMessage}</li>
+            <li>${error.defaultMessage}</li>
         </ul>
     </#if>
 </div>
